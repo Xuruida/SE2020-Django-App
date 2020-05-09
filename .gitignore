@@ -1,3 +1,5 @@
 env/
 interface_app/db.sqlite3
 __pycache__
+.vscode/
+migrations/
