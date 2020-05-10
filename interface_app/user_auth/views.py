@@ -31,7 +31,7 @@ def signup(request):
         else: # success
             User.objects.create_user(username, password=password)
             return JsonResponse({"status_code": 0, "username": username})
-    return HttpResponse("Please use POST method to signup.")
+    return JsonResponse({"status_code": -1, "error_info": "Please use POST method to signup."})
 
 @csrf_exempt
 def login(request):
@@ -60,4 +60,4 @@ def login(request):
                 })
         else:  # username not exist
             return JsonResponse({"status_code": 4, "error_info": "username not exist"})
-    return HttpResponse("Please use POST method to login.")
+    return JsonResponse({"status_code": -1, "error_info": "Please use POST method to login."})
