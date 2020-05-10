@@ -49,6 +49,6 @@ def holiday(request):
             return JsonResponse(
                 {
                     "status_code": 0,
-                    "error_info": holiday_name
+                    "holiday_name": holiday_name
                 }, json_dumps_params={'ensure_ascii': False})
     return JsonResponse({"status_code": -1, "error_info": "Please use POST method to check holidays."})
