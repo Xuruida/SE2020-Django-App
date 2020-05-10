@@ -40,12 +40,15 @@
 
 ### 配置及运行
 
-配置时需要执行以下命令：
+> 在WSL(Ubuntu 18.04 bionic [Ubuntu on Windows 10]) 下
+
+配置时需要执行以下命令（Windows请根据venv文档修改虚拟环境启动方式）：
 
 ```bash
-python3 -m venv env             # 
-source env/bin/activate         # 如果不需要虚拟环境可以不执行这两条
-pip install -r requirements.txt
+python3 -m venv env                                       # 建立虚拟环境
+source env/bin/activate                                   # 如果不需要虚拟环境可以不执行这两条
+pip install -r requirements.txt                           # 安装需求配置
+python ./interface_app/manage.py migrate                  # 迁移数据库
 python ./interface_app/manage.py runserver 127.0.0.1:8000 # 启动服务器
 ```
 
