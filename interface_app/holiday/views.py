@@ -29,7 +29,7 @@ def holiday(request):
                     "error_info": "param date does not exist"
                 })
         match = re.match('[0-9]{4}\-[0-9]{2}\-[0-9]{2}', query_date)
-        if not match:
+        if (len(query_date) != 10) or not match:
             return JsonResponse(
                 {
                     "status_code": 3,
