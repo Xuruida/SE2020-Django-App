@@ -47,9 +47,9 @@
 ```bash
 python3 -m venv env                                       # 建立虚拟环境
 source env/bin/activate                                   # 如果不需要虚拟环境可以不执行这两条
-pip install -r requirements.txt                           # 安装需求配置
-python ./interface_app/manage.py migrate                  # 迁移数据库
-python ./interface_app/manage.py runserver 127.0.0.1:8000 # 启动服务器
+pip3 install -r requirements.txt                           # 安装需求配置
+python3 ./interface_app/manage.py migrate                  # 迁移数据库
+python3 ./interface_app/manage.py runserver 127.0.0.1:8000 # 启动服务器
 ```
 
 此时127.0.0.1的8000端口应当已经成功运行服务器
@@ -80,7 +80,7 @@ python ./interface_app/manage.py runserver 127.0.0.1:8000 # 启动服务器
 
     - `3`: 未填写密码，同时返回"password empty"信息
 
-    - `-1`: 未使用POST方法，同时返回"Please use POST method to login."信息
+    - `-1`: 未使用POST方法，同时返回"Please use POST method to signup."信息
 
   - `error_info`: 在`status_code`不为0时返回如上所示的错误信息。
 
@@ -169,3 +169,5 @@ python ./interface_app/manage.py runserver 127.0.0.1:8000 # 启动服务器
   - `error_info`: 如上所示，返回对应`status_code`的信息
 
   - `holiday_name`: 返回对应节日（`"元旦"`、`"国庆节"`、`"圣诞节"`）
+
+  > 认证失败时会返回Django REST Framework下的Token不存在或Token无法对应信息，同时返回HTTP 401（未授权）。
